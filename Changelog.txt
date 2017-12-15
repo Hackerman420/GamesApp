@@ -16,5 +16,8 @@ Improved UI features
 Got login screen to pop up first
 Bug Fixes
 Added to CLP.java
+0.0.4- 12/15/17
+Added working Logout and Login Button
+Also Got backendless to recive information about the user and their email
 
 
