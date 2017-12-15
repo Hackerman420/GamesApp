@@ -29,7 +29,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|left"
         android:text="Logout"
+        android:onClick="sendMessage"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="top|right" />
+
+
 
 </android.support.design.widget.CoordinatorLayout>

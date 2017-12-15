@@ -23,7 +23,7 @@ import com.backendless.exceptions.BackendlessFault;
  * Created by bleitzel on 12/5/2017.
  */
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends MainActivity {
 
     private final String APP_ID = "01A36FC8-2A48-6E25-FF7B-930985C03700";
     private final String SECRET_KEY = "BA874005-03BA-0437-FF77-8BD65BCF6000";
@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordEdit = (EditText) findViewById(R.id.enter_password);
         SignUpTextOnClick signUpTextOnClick = new SignUpTextOnClick();
         mSignUpTextView.setOnClickListener(signUpTextOnClick);
+        Backendless.initApp(this, APP_ID, SECRET_KEY);
 
     }
 
@@ -174,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
                             pDialog.dismiss();
                             warnUser(backendlessFault.getMessage());
                         }
-                        
+
                     });
                 }
             } else {

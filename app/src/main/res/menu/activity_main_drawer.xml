@@ -6,16 +6,13 @@
             android:id="@+id/nav_TTT"
             android:icon="@drawable/ic_blur_on_black_24dp"
             android:title="@string/tic_tac_toe"
-            android:text="Tic Tac Toe"
             />
 
         <item
             android:id="@+id/nav_Checkers"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="@string/checkers"
-            android:text="Checkers"
             />
-
     </group>
 
 
