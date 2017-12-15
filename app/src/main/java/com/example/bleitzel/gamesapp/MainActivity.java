@@ -19,15 +19,15 @@ import android.widget.Button;
 
 import com.example.bleitzel.gamesapp.TicTacToeFolder.CLP;
 import com.example.bleitzel.gamesapp.TicTacToeFolder.Engine;
+import com.example.bleitzel.gamesapp.TicTacToeFolder.TicTacToeBoard;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Fragment contentFragment = null;
 
-    private Button LoginButton;
     private Button TTTButton;
-
+    private Button LogoutButton;
 
 
     @Override
@@ -37,11 +37,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        LoginButton = (Button) findViewById(R.id.LoginButton);
-        LoginButtonOnClick loginButtonOnClick = new LoginButtonOnClick();
-
-        TTTButton = (Button) findViewById(R.id.LoginButton);
-        TTTButtonOnClick tttButtonOnClickButtonOnClick = new TTTButtonOnClick();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -57,17 +52,23 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public void onClick(View view) {
-            startActivity(new Intent(MainActivity.this, Engine.class));
+            startActivity(new Intent(MainActivity.this, TicTacToeBoard.class));
         }
 
     }
 
-    private class LoginButtonOnClick implements  View.OnClickListener{
+    public void init(){
+        LogoutButton = findViewById(R.id.LogoutButton);
+        LogoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        @Override
-        public void onClick(final View view) {
-            startActivity(new Intent(MainActivity.this, Engine.class));
-        }
+                Intent toy = new Intent(MainActivity.this,LoginActivity.class);
+
+                startActivity(toy);
+
+            }
+        });
     }
 
     @Override
