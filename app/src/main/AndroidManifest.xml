@@ -32,14 +32,6 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity
-            android:name=".TicTacToeFolderTTTMain"
-            android:label="TicTacToe"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
-
 
 
 

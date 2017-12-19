@@ -7,6 +7,12 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
+    
+    <com.example.bleitzel.gamesapp.TicTacToeFolder.BoardView
+        android:id="@+id/board"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
 
     <include
         layout="@layout/app_bar_main"

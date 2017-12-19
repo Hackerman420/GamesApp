@@ -1,5 +1,6 @@
 package com.example.bleitzel.gamesapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +11,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -17,16 +19,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.bleitzel.gamesapp.TicTacToeFolder.CLP;
-import com.example.bleitzel.gamesapp.TicTacToeFolder.Engine;
-import com.example.bleitzel.gamesapp.TicTacToeFolder.TicTacToeBoard;
+import com.example.bleitzel.gamesapp.TicTacToeFolder.BoardView;
+import com.example.bleitzel.gamesapp.TicTacToeFolder.GameEngine;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Fragment contentFragment = null;
 
+
     private Button LogoutButton;
+    private BoardView boardView;
+    private GameEngine gameEngine;
 
 
     @Override
@@ -35,6 +39,10 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        boardView = (BoardView) findViewById(R.id.board);
+        gameEngine = new GameEngine();
+        boardView.setGameEngine(gameEngine);
+        boardView.setMainActivity(this);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -47,22 +55,14 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    private class TTTButtonOnClick implements  View.OnClickListener{
 
-        @Override
-        public void onClick(View view) {
-            startActivity(new Intent(MainActivity.this, TicTacToeBoard.class));
-        }
-
-    }
-
-    public void init(){
+    public void init() {
         LogoutButton = findViewById(R.id.LogoutButton);
         LogoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent toy = new Intent(MainActivity.this,LoginActivity.class);
+                Intent toy = new Intent(MainActivity.this, LoginActivity.class);
 
                 startActivity(toy);
 
@@ -94,6 +94,11 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+
+        if (item.getItemId() == R.id.action_new_game) {
+            newGame();
+        }
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -101,6 +106,27 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void gameEnded(char c) {
+        String msg = (c == 'T') ? "Game Ended. Tie" : "GameEnded. " + c + "win";
+
+        new AlertDialog.Builder(this).setTitle("Tic Tac Toe").
+                setMessage(msg).
+                setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialogInterface) {
+                        newGame();
+                    }
+
+
+                }).show();
+    }
+
+    private void newGame() {
+        gameEngine.newGame();
+        boardView.invalidate();
+    }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -110,9 +136,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_TTT) {
             contentFragment = new Fragment();
-        }
-
-        else if (id == R.id.nav_Checkers) {
+        } else if (id == R.id.nav_Checkers) {
             contentFragment = new CheckersFragment();
         }
 
@@ -124,10 +148,5 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-    public void sendMessage(View view)
-    {
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
     }
 }
