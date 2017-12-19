@@ -56,19 +56,12 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void init() {
-        LogoutButton = findViewById(R.id.LogoutButton);
-        LogoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    public void sendMessage(View view)
+     {
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+  }
 
-                Intent toy = new Intent(MainActivity.this, LoginActivity.class);
-
-                startActivity(toy);
-
-            }
-        });
-    }
 
     @Override
     public void onBackPressed() {
