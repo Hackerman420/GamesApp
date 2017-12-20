@@ -20,4 +20,7 @@ Added to CLP.java
 Added working Logout and Login Button
 Also Got backendless to recive information about the user and their email
 
-
+0.0.5 - 12/20/17
+Fixed UI
+Bug Fixes
+Work in Progress Tic Tac Toe
