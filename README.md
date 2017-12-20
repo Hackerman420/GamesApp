@@ -16,6 +16,6 @@ You are finished and the app is installed, to get more recent versions run again
 
 ### Built With:
 
--Android Studio
+[Android Studio](https://developer.android.com/studio/index.html) - The Software used to code
 
--LibGDX
+[Backendless](https://developer.android.com/studio/index.html) - The cloud storage used for login and passwords
