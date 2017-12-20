@@ -3,11 +3,11 @@ version 0.0.5
 
 
 Games App is an app deveopled by 3 people from the Dover Area Highschool in attempt to make an app that culminates a bunch of games.
-The Game is a collection of games that can be used to pass the time or play them without a board or pieces.
+The Game is a collection of games that can be used to pass the time or play games without a board or pieces.
 
 Prerequisites:
 
-You will need a android running device and android studio
+You will need a android running device and Android Studio
 
 Installing:
 
