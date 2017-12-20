@@ -16,5 +16,6 @@ You are finished and the app is installed, to get more recent versions run again
 
 Built With:
 
-Android Studio
-LibGDX
+-Android Studio
+
+-LibGDX
