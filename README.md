@@ -18,6 +18,9 @@ You are finished and the app is installed, to get more recent versions run again
 
 [Backendless](https://backendless.com/documentation/messaging/android/messaging_push_notification_setup_androi.htm) - The cloud storage used for login and passwords
 
+### Versioning:
+We use Semantic Versioning
+
 ### Authors:
 Riley Smyser-https://github.com/RileyS1
 
@@ -35,3 +38,5 @@ Vivi Huber
 mahmoud
 
 Beloo
+
+
