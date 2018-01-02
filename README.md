@@ -20,12 +20,18 @@ You are finished and the app is installed, to get more recent versions run again
 
 ### Authors:
 Riley Smyser-https://github.com/RileyS1
+
 Brandon Leizel-https://github.com/Hackerman420
+
 Nick Voorstad-https://github.com/ibrah69
 
 ### Acknowledgments:
 Stack Overflow-
+
 hectorsq
+
 Vivi Huber
+
 mahmoud
+
 Beloo
